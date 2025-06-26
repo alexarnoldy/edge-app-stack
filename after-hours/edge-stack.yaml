@@ -45,17 +45,17 @@ roleRef:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: latimer 
+  name: after-hours-application 
   namespace: lenovo-edge-after-hours
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: latimer
+      app: after-hours-application
   template:
     metadata:
       labels:
-        app: latimer
+        app: after-hours-application
     spec:
       containers:
       - name: nginx
@@ -68,12 +68,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: latimer-service
+  name: after-hours-application-service
   namespace: lenovo-edge-after-hours
 spec:
   type: NodePort
   selector:
-    app: latimer
+    app: after-hours-application
   ports:
     - protocol: TCP
       port: 80
